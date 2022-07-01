@@ -125,4 +125,25 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+    /**
+     * Login action.
+     *
+     * @return Response
+     */
+    public function actionDb()
+    {
+        $rows = (new \yii\db\Query())
+            ->select('*')
+            ->from('users')
+            ->all();
+
+        $response = Yii::$app->response;
+        $response->format = \yii\web\Response::FORMAT_JSON;
+        $response->data = ['rows' => $rows];
+
+        //$response->content = 'hello';
+
+        return $response;
+    }
 }

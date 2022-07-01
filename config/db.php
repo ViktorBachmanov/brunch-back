@@ -1,11 +1,14 @@
 <?php
 
+$dbopts = parse_url($_ENV['DATABASE_URL']);
+
+$dbname = ltrim($dbopts["path"],'/');
+
 return [
     'class' => 'yii\db\Connection',
-    //'dsn' => 'mysql:host=localhost;dbname=yii2basic',
-    'dsn' => 'pgsql:host=localhost;port=5432;dbname=brunch_test',
-    'username' => 'brunch_test',
-    'password' => 'brunch_test',
+    'dsn' => "pgsql:host={$dbopts['host']};port={$dbopts['port']};dbname={$dbname}",
+    'username' => $dbopts["user"],
+    'password' => $dbopts["pass"],
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)
