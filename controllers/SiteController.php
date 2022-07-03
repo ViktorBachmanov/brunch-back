@@ -40,7 +40,7 @@ class SiteController extends Controller
             'corsFilter' => [
                 'class' => Cors::class,
                 'cors' => [
-                    'Origin' => ['http://localhost:3000', 'https://brunch-front-rp-viktorbachmanov.vercel.app'],
+                    'Origin' => [$_ENV['FRONT_ORIGIN']],
                     'Access-Control-Request-Method' => ['GET'],
                 ],
             ],
