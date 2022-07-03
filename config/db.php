@@ -1,6 +1,6 @@
 <?php
 
-$dbopts = parse_url($_ENV['DATABASE_URL']);
+$dbopts = parse_url(getenv('DATABASE_URL'));
 
 $dbname = ltrim($dbopts["path"],'/');
 

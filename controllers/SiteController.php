@@ -40,7 +40,7 @@ class SiteController extends Controller
             'corsFilter' => [
                 'class' => Cors::class,
                 'cors' => [
-                    'Origin' => [$_ENV['FRONT_ORIGIN']],
+                    'Origin' => [getenv('FRONT_ORIGIN')],
                     'Access-Control-Request-Method' => ['GET'],
                 ],
             ],
