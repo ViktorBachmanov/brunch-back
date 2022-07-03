@@ -10,6 +10,8 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
+use yii\filters\Cors;
+
 class SiteController extends Controller
 {
     /**
@@ -33,6 +35,13 @@ class SiteController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
+                ],
+            ],
+            'corsFilter' => [
+                'class' => Cors::class,
+                'cors' => [
+                    'Origin' => ['http://localhost:3000', 'https://brunch-front-rp-viktorbachmanov.vercel.app/'],
+                    'Access-Control-Request-Method' => ['GET'],
                 ],
             ],
         ];
