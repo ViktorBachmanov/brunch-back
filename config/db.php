@@ -1,5 +1,10 @@
 <?php
 
+if(file_exists(__DIR__ . '/../.env')) {
+    $dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__ . '/..');
+    $dotenv->load();
+}
+
 $dbopts = parse_url(getenv('DATABASE_URL'));
 
 $dbname = ltrim($dbopts["path"],'/');
