@@ -14,6 +14,7 @@ class m220704_093933_create_order_table extends Migration
     {
         $this->createTable('{{%order}}', [
             'id' => $this->primaryKey(),
+            'sum' => $this->integer()->notNull(),
             'user_id' => $this->integer()->notNull(),
             'shop_cart' => " json",
         ]);

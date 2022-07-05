@@ -17,7 +17,7 @@ class m220703_150621_create_user_table extends Migration
             'email' => $this->string(64),
             'name' => $this->string(64),
             'tel' => $this->string(64),
-            'password' => $this->string(),
+            'password' => $this->string()->notNull(),
         ]);
     }
 
