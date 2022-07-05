@@ -34,6 +34,7 @@ class SendOrder
   public function __construct(Order $order)
   {
     $this->id = $order->id;
+    $this->sum = $order->sum;
     $this->userId = $order->user_id;
 
     foreach($order->shop_cart as $key => $qty) {
@@ -41,22 +42,20 @@ class SendOrder
       if($product === null) {
         continue;
       }
-      $this->products[] = new ProductQtySum($product, $qty);
+      $this->products[] = new ProductQty($product->name, $qty);
     }
   }
 }
 
-class ProductQtySum
+class ProductQty
 {
-  public $name;
-  public $quantity;
-  public $sum;
-  
-  public function __construct(Product $product, int $qty)
+  public string $name;
+  public int $quantity;
+
+  public function __construct(string $name, int $qty)
   {
-    $this->name = $product->name;
+    $this->name = $name;
     $this->quantity = $qty;
-    $this->sum = $product->price * $qty;
   }
 }
 

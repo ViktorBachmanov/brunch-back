@@ -30,9 +30,6 @@ class OrderController extends ActiveController
 
         $sendOrders = (new Order())->getSendOrders();
 
-        //$response->data = ['sendOrders' => $sendOrders];
         $response->data = $sendOrders;
-    }
-
-    
+    }    
 }
