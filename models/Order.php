@@ -28,6 +28,7 @@ class Order extends ActiveRecord
 class SendOrder
 {
   public int $id;
+  public int $sum;
   public int $userId;
   public array $products;
 
