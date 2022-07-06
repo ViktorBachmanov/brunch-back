@@ -19,3 +19,11 @@ Set the database URL environment variable:
 ```
 DATABASE_URL="postgres://brunch_test:brunch_test@localhost:5432/brunch_test"
 ```
+
+### Migrations
+
+Apply migrations:
+
+```
+php yii migrate
+```
