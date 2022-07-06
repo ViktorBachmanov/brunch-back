@@ -15,6 +15,8 @@ class m220705_093854_seed_order_table extends Migration
         $this->insert("order", ['sum' => 450, 'user_id' => 1, 'shop_cart' => ['1' => 1, '2' => 1] ]);
         $this->insert("order", ['sum' => 735, 'user_id' => 2, 'shop_cart' => ['2' => 2, '3' => 1] ]);
         $this->insert("order", ['sum' => 1295, 'user_id' => 3, 'shop_cart' => ['1' => 2, '4' => 3] ]);
+        $this->insert("order", ['sum' => 265, 'user_id' => 1, 'shop_cart' => ['4' => 1] ]);
+        $this->insert("order", ['sum' => 1120, 'user_id' => 2, 'shop_cart' => ['5' => 1, '1' => 2, '3' => 1] ]);
     }
 
     /**
@@ -22,9 +24,11 @@ class m220705_093854_seed_order_table extends Migration
      */
     public function safeDown()
     {
-        $this->delete("order", "id=3");
-        $this->delete("order", "id=4");
-        $this->delete("order", "id=5");
+        $this->delete("order", "sum=450");
+        $this->delete("order", "sum=735");
+        $this->delete("order", "sum=1295");
+        $this->delete("order", "sum=265");
+        $this->delete("order", "sum=1120");
     }
 
     /*
